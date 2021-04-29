@@ -1,0 +1,28 @@
+{
+  "files.associations": {
+    "*.css": "sass"
+  },
+  "emmet.includeLanguages": {
+    "njk": "html"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "postcss.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "[sass]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "material-icon-theme.files.associations": {
+    "*.eta": "ejs"
+  },
+  "beautify.language": {
+    "html": ["eta", "html"]
+  }
+}

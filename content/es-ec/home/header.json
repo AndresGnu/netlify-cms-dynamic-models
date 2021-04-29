@@ -1,0 +1,26 @@
+{
+  "title": "Hello word",
+  "subtitle": "Este es el subtitulo",
+  "brands": [
+    {
+      "image": "logos/brands/facebook.svg"
+    },
+    {
+      "image": "logos/brands/tesla.svg"
+    },
+    {
+      "image": "logos/brands/marvel.svg"
+    },
+    {
+      "image": "logos/brands/nike.svg"
+    },
+    {
+      "image": "logos/brands/airbnb.svg"
+    }
+  ],
+  "buttons": {
+    "primary": "Primario",
+    "secondary": "Secundario",
+    "thrir": "ueu"
+  }
+}

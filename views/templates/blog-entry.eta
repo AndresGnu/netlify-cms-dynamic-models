@@ -1,0 +1,7 @@
+<%layout('layouts/default')%>
+
+
+<%{vue%>
+<blog-entrie></blog-entrie>
+<%vue}%>
+<% /* */ %>

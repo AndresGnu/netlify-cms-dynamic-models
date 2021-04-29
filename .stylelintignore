@@ -1,0 +1,14 @@
+**/*.vue
+**/*.ts
+**/*.js
+.flow/**/*
+generator/**/*
+netlify/**/*
+static/**/*
+components/**/*
+content/**/*
+packages/**/*
+plugins/**/*
+scripts/**/*
+views/**/*
+node_modules

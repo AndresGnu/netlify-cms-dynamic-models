@@ -1,0 +1,13 @@
+{
+  "title": "Make your  <span class=\"text-blue-600\">life easier</span> for marketing sales and customer support",
+  "text": "Lorem ipsum dolor sit amet consectetur adipisicing. Dolor sit amet            consectetur adipisicing elit. Aliquid harum ducimus adipisci animi\n            quidem nesciunt similique ex enim accusantium voluptate. Consectetur\n            adipisicing harum ducimus adipisci.",
+  "items": [
+    {
+      "icon": "mdi:account",
+      "title": "Category Example",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    }
+  ],
+  "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing. Dolor sit amet            consectetur adipisicing elit. Aliquid harum ducimus adipisci animi\n            quidem nesciunt similique ex enim accusantium voluptate. Consectetur\n            adipisicing harum ducimus adipisci.",
+  "description": "Lorem ipsum dolor sit amet consectetur adipisicing. Dolor sit amet            consectetur adipisicing elit. Aliquid harum ducimus adipisci animi\n            quidem nesciunt similique ex enim accusantium voluptate. Consectetur\n            adipisicing harum ducimus adipisci."
+}

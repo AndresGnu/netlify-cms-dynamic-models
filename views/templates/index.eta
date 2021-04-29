@@ -1,0 +1,6 @@
+<%layout('layouts/default')%>
+
+
+<%{vue%>
+<home-sections />
+<% vue} %>

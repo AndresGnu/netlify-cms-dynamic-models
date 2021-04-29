@@ -1,0 +1,8 @@
+<%layout('layouts/default')%>
+
+
+
+<% {vue %>
+<blog-sections />
+
+<% vue} %>

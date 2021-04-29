@@ -1,0 +1,65 @@
+{
+  "name": "@app/generator",
+  "version": "3.1.22",
+  "private": true,
+  "bin": "./dist/generate.js",
+  "scripts": {
+    "dev2": "esbuild-dev -s src/server.ts",
+    "dev": "tsnd --respawn --files src/server.ts",
+    "test": "jest",
+    "generate": "ts-node src/generate.ts",
+    "generate2": "esno src/generate.ts",
+    "build": "tsc",
+    "pre-exe": "yarn build && node dist/generate.js pre-package",
+    "exe": "yarn pre-exe && pkg ./package.json --targets linux -o ../.flow/build/generator"
+  },
+  "pkg": {
+    "scripts": [
+      "dist/**/*.js",
+      ".flow/**/*.js"
+    ],
+    "target": "linux"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@hapi/glue": "^8.0.0",
+    "@hapi/h2o2": "^9.0.2",
+    "@hapi/hapi": "^20.1.2",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/vision": "^6.0.1",
+    "@monkeyplus/flow": "^3.1.1",
+    "@monkeyplus/flow-chunks": "^3.1.1",
+    "@monkeyplus/flow-content": "^3.0.24",
+    "@monkeyplus/flow-dev-routes": "^3.0.23",
+    "@monkeyplus/flow-engines": "^3.0.22",
+    "@monkeyplus/flow-google-fonts": "^3.0.22",
+    "@monkeyplus/flow-hmr": "^3.1.4",
+    "@monkeyplus/flow-icons": "^3.0.22",
+    "@monkeyplus/flow-images": "^3.0.22",
+    "@monkeyplus/flow-import-pages": "^3.1.0",
+    "@monkeyplus/flow-insert-context": "^3.0.22",
+    "@monkeyplus/flow-netlify": "^3.0.30",
+    "@monkeyplus/flow-sitemap": "^3.0.22",
+    "@monkeyplus/flow-static": "^3.0.22",
+    "@monkeyplus/flow-vue": "^3.1.7",
+    "dotenv": "^8.2.0",
+    "eta": "^1.12.1",
+    "hapi-pino": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/hapi__glue": "^6.1.3",
+    "@types/hapi__h2o2": "^8.3.2",
+    "@types/hapi__hapi": "^20.0.5",
+    "@types/hapi__inert": "^5.2.2",
+    "@types/hapi__vision": "^5.5.2",
+    "@types/node": "^14.14.35",
+    "@types/ramda": "^0.27.39",
+    "esbuild-dev": "^0.6.2",
+    "esno": "^0.5.0",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  }
+}

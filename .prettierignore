@@ -1,0 +1,10 @@
+build
+coverage
+dist
+.flow
+./static
+node_modules
+./netlify
+generator/resources
+lambda
+/content

@@ -1,0 +1,9 @@
+<%layout('layouts/default')%>
+
+<div class="h-screen">
+</div>
+<div class="py-8">
+</div>
+<%{vue %>
+<the-sal />
+<% vue}%>
