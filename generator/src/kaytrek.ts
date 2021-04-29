@@ -18,7 +18,8 @@ export const plugin: Plugin<unknown> = {
       {
         id: 'socios',
         label: 'Socios',
-        create: true
+        create: true,
+        summary: '{{fields.title}} - {{fields.type}} ({{filename}})'
       },
       {
         title: widgets.string(),
@@ -41,11 +42,17 @@ export const plugin: Plugin<unknown> = {
           // console.log(element);
           const collection = collections.files(
             {
-              id: data.type,
+              id: `${data.type}_${section}`,
               label: section
             },
             {
-              [section]: collections.file({ label: section }, element)
+              [modeAuth]: collections.file(
+                { label: section },
+                {
+                  id: widgets.hidden({ default: modeAuth, required: true }),
+                  content: widgets.object({}, element)
+                }
+              )
             }
           )('');
           customCollections.push(collection);
@@ -69,7 +76,9 @@ export const plugin: Plugin<unknown> = {
                 {
                   id: `${cleanName}_${section}`,
                   label: `${cleanName}_${section}`,
-                  create: true
+                  summary: '{{filename}}',
+                  identifier_field: 'title'
+                  // create: true,
                 },
                 {
                   content: widgets.object({}, element)
