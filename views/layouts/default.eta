@@ -6,9 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="MONKEY PLUS">
-  <%{vue%>
-  <the-metadata />
-  <%vue}%>
+
   <%~ it.global?.chunks?.head %>
   <%~ it.global?.hmr?.head %>
   <%~ it.global.fonts %>
@@ -18,17 +16,11 @@
 <body>
   <%~ await includeFile('partials/seo/bodyTopScripts') %>
 
-  <%{vue%>
-  <the-header />
-  <the-sidebar />
-  <%vue}%>
 
 
   <%~ it.body%>
 
-  <%{vue%>
-  <the-footer />
-  <%vue}%>
+
   <%~ it.global?.hmr?.body||'' %>
   <%~ it.global?.chunks.body||'' %>
   <%~ it.global?.cmsPreview ||'' %>

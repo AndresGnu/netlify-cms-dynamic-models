@@ -1,6 +1,0 @@
-<%layout('layouts/default')%>
-
-
-<%{vue%>
-<example-sections />
-<% vue} %>
