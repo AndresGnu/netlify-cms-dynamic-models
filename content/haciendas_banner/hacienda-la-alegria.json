@@ -1,6 +1,7 @@
 {
-  "content":{"image": "/images/captura-de-pantalla-de-2021-04-26-11-02-24.png",
-    "title": "Title",
+  "content": {
+    "image": "/images/captura-de-pantalla-de-2021-04-29-11-49-28.png",
+    "title": "Hacienda la alegria",
     "ubication": "ub",
     "category": {
       "primary": {
@@ -11,5 +12,6 @@
         "icon": "e",
         "name": "e"
       }
-    }}
+    }
+  }
 }
