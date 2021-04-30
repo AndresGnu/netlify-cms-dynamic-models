@@ -9,7 +9,7 @@ dotenv.config({ path: pathEnv });
  */
 const env = {
   NODE_ENV: Joi.string(),
-  PORT: Joi.number(),
+  PORT: Joi.number().optional().default(3050),
   AUTH: Joi.string()
 };
 
