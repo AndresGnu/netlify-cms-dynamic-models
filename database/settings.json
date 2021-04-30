@@ -1,0 +1,16 @@
+{
+  "haciendas": {
+    "sections": ["banner"],
+    "mongo": {
+      "database": "places",
+      "collection": "haciendas"
+    }
+  },
+  "playas": {
+    "sections": ["banner"],
+    "mongo": {
+      "database": "places",
+      "collection": "haciendas"
+    }
+  }
+}

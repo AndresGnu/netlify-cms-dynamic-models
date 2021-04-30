@@ -31,19 +31,7 @@ export const generate = async (): Promise<unknown> => {
 
   if (process.env.GENERATE) {
     await server.flow.runGenerate({
-      ommitAssets: ['images', 'assets'],
-      assets: [
-        {
-          prefix: '',
-          dirs: ['assets'],
-          relativeTo: path.join(pathProject, '.flow', 'javascript')
-        },
-        {
-          prefix: '',
-          dirs: ['assets'],
-          relativeTo: path.join(pathProject, '.flow', 'styles')
-        }
-      ]
+      assets: []
     });
     return process.exit(0);
   } else {

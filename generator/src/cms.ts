@@ -1,19 +1,17 @@
-import { Plugin, server } from '@hapi/hapi';
+import { Plugin } from '@hapi/hapi';
 import path from 'path';
 import { defineCms, collections, widgets } from '@monkeyplus/flow-netlify';
 import yml from 'js-yaml';
-import { pathProject } from './config';
 import fs from 'fs';
 export const plugin: Plugin<unknown> = {
   name: 'cms',
   register: async (server) => {
     //
-    // const
     console.log('Register cms');
-    const models = fs.readdirSync(path.join(pathProject, 'models'));
-    console.log(models);
+    const models = fs.readdirSync(path.join(__dirname, 'models'));
+    // console.log(models);
     const modeAuth = process.env.AUTH!;
-    console.log(modeAuth);
+    // console.log(modeAuth);
     const socios = collections.folder(
       {
         id: 'socios',
@@ -24,7 +22,7 @@ export const plugin: Plugin<unknown> = {
       {
         title: widgets.string(),
         type: widgets.select({
-          options: models.map((v) => v.replace('.js', ''))
+          options: models
         })
       }
     );
@@ -34,12 +32,13 @@ export const plugin: Plugin<unknown> = {
       //
       const data: any = await server.$content('socios', modeAuth).fetch();
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const module = require(path.join(pathProject, 'models', data.type));
-      const obj = module.register({ widgets });
+      const module = require(path.join(__dirname, 'models', data.type));
+
+      const obj = module?.default;
+
       for (const section in obj.sections) {
         if (Object.prototype.hasOwnProperty.call(obj.sections, section)) {
           const element = obj.sections[section];
-          // console.log(element);
           const collection = collections.files(
             {
               id: `${data.type}_${section}`,
@@ -58,24 +57,22 @@ export const plugin: Plugin<unknown> = {
           customCollections.push(collection);
         }
       }
-
-      // console.log(data);
     } else {
       customCollections.push(socios(''));
       for (const model of models) {
-        const cleanName = model.replace('.js', '');
         try {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const module = require(path.join(pathProject, 'models', model));
-          const obj = module.register({ widgets });
+          const module = require(path.join(__dirname, 'models', model));
+          const obj = module?.default;
+
           for (const section in obj.sections) {
             if (Object.prototype.hasOwnProperty.call(obj.sections, section)) {
               const element = obj.sections[section];
               // console.log(element);
               const collection = collections.folder(
                 {
-                  id: `${cleanName}_${section}`,
-                  label: `${cleanName}_${section}`,
+                  id: `${model}_${section}`,
+                  label: `${model}_${section}`,
                   summary: '{{filename}}',
                   identifier_field: 'title'
                   // create: true,
@@ -87,15 +84,12 @@ export const plugin: Plugin<unknown> = {
               customCollections.push(collection);
             }
           }
-
-          // console.log(obj);
         } catch (error) {
           console.log(error);
         }
       }
     }
 
-    const pathResources = path.join(__dirname, '..', 'resources');
     server.route({
       path: '/admin/config.yml',
       method: 'get',
@@ -123,22 +117,6 @@ export const plugin: Plugin<unknown> = {
         const schema = yml.dump(t);
 
         return h.response(schema).type('text/yaml');
-      }
-    });
-
-    server.route({
-      path: `/admin/`,
-      method: 'get',
-      options: {
-        plugins: {
-          generate: '.html'
-        }
-      },
-      handler: {
-        file: {
-          path: `${pathResources}/admin.html`,
-          confine: false
-        }
       }
     });
   }

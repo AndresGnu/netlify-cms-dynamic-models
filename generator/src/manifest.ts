@@ -44,9 +44,8 @@ const manifest: Manifest = {
       {
         plugin: '@monkeyplus/flow-content'
       },
-
       {
-        plugin: './kaytrek'
+        plugin: './cms'
       }
     ]
   }
